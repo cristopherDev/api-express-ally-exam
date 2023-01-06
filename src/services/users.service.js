@@ -1,6 +1,7 @@
 class UsersService {
-  constructor(user) {
+  constructor(user, task) {
     this.user = user
+    this.task = task
   }
 
   async findEmail(email) {
@@ -32,6 +33,16 @@ class UsersService {
       })
 
       return { total: totalUsers, users }
+    } catch (error) {
+      return error
+    }
+  }
+
+  async getAllTaskByIdUser(userId) {
+    try {
+      return await this.task.findAll({
+        where: { userId },
+      })
     } catch (error) {
       return error
     }

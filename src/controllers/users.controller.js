@@ -1,7 +1,8 @@
 const UsersService = require('../services/users.service')
 const User = require('../models/user.model')
+const Task = require('../models/task.model')
 
-const usersService = new UsersService(User)
+const usersService = new UsersService(User, Task)
 
 async function createUser(req, res) {
   try {
@@ -32,7 +33,19 @@ async function getAllUsers(req, res) {
   }
 }
 
+async function getAllTaskByIdUser(req, res) {
+  try {
+    const { id } = req.params
+    const result = await usersService.getAllTaskByIdUser(id)
+
+    res.status(200).json(result)
+  } catch (error) {
+    res.status(500).json(error)
+  }
+}
+
 module.exports = {
   createUser,
   getAllUsers,
+  getAllTaskByIdUser,
 }
