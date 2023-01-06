@@ -1,6 +1,7 @@
 const { DataTypes } = require('sequelize')
 const { sequelize } = require('../database')
-const md5 = require('md5')
+const Task = require('./task.model')
+const bcrypt = require('bcrypt')
 
 const User = sequelize.define(
   'user',
@@ -11,7 +12,7 @@ const User = sequelize.define(
       primaryKey: true,
     },
     name: {
-      type: DataTypes.STRING,
+      type: DataTypes.STRING(120),
       allowNull: false,
     },
     password: {
@@ -32,13 +33,16 @@ const User = sequelize.define(
     hooks: {
       beforeCreate: async (user) => {
         if (user.password) {
-          const cryptPassword = md5(user.password)
-          user.password = cryptPassword
+          const salt = bcrypt.genSaltSync()
+          const hashedPassword = bcrypt.hashSync(user.password, salt)
+          user.password = hashedPassword
         }
       },
     },
     timestamps: true,
   }
 )
+
+User.hasOne(Task)
 
 module.exports = User

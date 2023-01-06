@@ -5,16 +5,15 @@ const userSchema = require('../schemas/user.schema')
 
 function validateNewUser(req, res, next) {
   const { error } = userSchema.validate(req.body, JoiConfig)
-  const checkValid = error === undefined 
 
-  if (checkValid) {
-    next()
-  } else {
+  if (error) {
     const { details } = error
     const message = details.map((i) => i.message).join(',')
 
     res.send(Boom.badData('', { message }))
   }
+
+  next()
 }
 
 module.exports = {
