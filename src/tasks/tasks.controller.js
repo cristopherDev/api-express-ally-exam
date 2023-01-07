@@ -1,5 +1,5 @@
-const TasksService = require('../services/tasks.service')
-const Task = require('../models/task.model')
+const TasksService = require('./tasks.service')
+const Task = require('./models/task.model')
 
 const tasksService = new TasksService(Task)
 

@@ -1,5 +1,5 @@
-const UsersService = require('../services/users.service')
-const User = require('../models/user.model')
+const UsersService = require('../users/users.service')
+const User = require('../users/models/user.model')
 const bcrypt = require('bcrypt')
 const jwt = require('jsonwebtoken')
 const { secretKey } = require('../constants')

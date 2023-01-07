@@ -1,5 +1,5 @@
 const { DataTypes } = require('sequelize')
-const { sequelize } = require('../database')
+const { sequelize } = require('../../database')
 
 const Task = sequelize.define(
   'task',
@@ -21,6 +21,8 @@ const Task = sequelize.define(
   },
   {
     timestamps: true,
+    tableName: 'task',
+    freezeTableName: true,
   }
 )
 

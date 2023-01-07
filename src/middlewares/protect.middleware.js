@@ -2,11 +2,13 @@ const jwt = require('jsonwebtoken')
 
 function protect(req, res, next) {
   try {
-    const token = req.headers.authorization
+    const authHeader = req.headers.authorization
 
-    if (!token) {
+    if (!authHeader) {
       return res.status(401).json({ error: 'Acceso denegado' })
     }
+
+    const token = authHeader.split(' ')[1]
 
     jwt.verify(token, process.env.SECRET_KEY)
 

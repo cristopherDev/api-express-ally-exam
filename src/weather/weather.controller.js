@@ -1,4 +1,4 @@
-const WeatherService = require('../services/weather.service')
+const WeatherService = require('./weather.service')
 const { urlApiWeather, apiWeatherKey } = require('../constants')
 
 const weatherService = new WeatherService(urlApiWeather, apiWeatherKey)

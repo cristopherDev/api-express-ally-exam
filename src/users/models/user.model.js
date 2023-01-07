@@ -1,6 +1,6 @@
 const { DataTypes } = require('sequelize')
-const { sequelize } = require('../database')
-const Task = require('./task.model')
+const { sequelize } = require('../../database')
+const Task = require('../../tasks/models/task.model')
 const bcrypt = require('bcrypt')
 
 const User = sequelize.define(
@@ -22,7 +22,7 @@ const User = sequelize.define(
     email: {
       type: DataTypes.STRING,
       allowNull: false,
-      unique: true
+      unique: true,
     },
     last_login: {
       type: DataTypes.DATE,
@@ -40,6 +40,8 @@ const User = sequelize.define(
       },
     },
     timestamps: true,
+    tableName: 'user',
+    freezeTableName: true,
   }
 )
 

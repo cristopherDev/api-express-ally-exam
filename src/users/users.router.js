@@ -5,7 +5,7 @@ const validateParams = require('../middlewares/params.middleware')
 const protect = require('../middlewares/protect.middleware')
 const userSchema = require('../schemas/user.schema')
 const userTaskSchema = require('../schemas/user-tasks.schema')
-const usersController = require('../controllers/users.controller')
+const usersController = require('./users.controller')
 
 router.get('/', protect, usersController.getAllUsers)
 router.get(

@@ -1,8 +1,8 @@
 const { Router } = require('express')
 const router = Router()
-const { getTime } = require('../controllers/timezone.controller')
+const { getWeather } = require('./weather.controller')
 const protect = require('../middlewares/protect.middleware')
 
-router.get('/', protect, getTime)
+router.get('/', protect, getWeather)
 
 module.exports = router

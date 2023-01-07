@@ -1,5 +1,5 @@
 const moment = require('moment-timezone')
-const TimeZoneService = require('../services/timezone.service')
+const TimeZoneService = require('./timezone.service')
 
 const timeZoneService = new TimeZoneService(moment)
 
