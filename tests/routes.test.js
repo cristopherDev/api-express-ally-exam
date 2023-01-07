@@ -22,8 +22,8 @@ describe('API Post endpoints', () => {
 
     it('Crear nuevo usuario sin datos', (done) => {
         const user = {
-            name: 'cristopher',
-            email: 'cristopher@gmail.com',
+            name: 'test user',
+            email: 'testuser@gmail.com',
             password: 'a123b456c'
         }
 
