@@ -6,6 +6,7 @@ const dbHost = process.env.DB_HOST || ''
 const dbPort = Number(process.env.DB_PORT) || 5432
 const dbName = process.env.DB_NAME || ''
 const PORT = Number(process.env.PORT) || 3000
+const secretKey = process.env.SECRET_KEY || '402586e2faa8da4c98a35f1b20d6b033c60'
 const JoiConfig = {
   errors: {
     wrap: {
@@ -21,5 +22,6 @@ module.exports = {
   dbPort,
   dbName,
   PORT,
+  secretKey,
   JoiConfig,
 }

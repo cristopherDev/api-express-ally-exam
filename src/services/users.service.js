@@ -1,3 +1,5 @@
+const { fn } = require('sequelize')
+
 class UsersService {
   constructor(user, task) {
     this.user = user
@@ -43,6 +45,18 @@ class UsersService {
       return await this.task.findAll({
         where: { userId },
       })
+    } catch (error) {
+      return error
+    }
+  }
+
+  async updateLoginUser(id) {
+    try {
+      const user = await this.user.findOne({ where: { id } })
+      user.last_login = fn('NOW')
+      user.save()
+
+      return true
     } catch (error) {
       return error
     }
