@@ -10,7 +10,8 @@
     "test": "jest --detectOpenHandles",
     "lint": "eslint --ignore-path .gitignore .",
     "format": "prettier --ignore-path .gitignore --write \"**/*.+(js|)\"",
-    "develop": "nodemon src/index.js"
+    "develop": "nodemon src/index.js",
+    "start": "node src/index.js"
   },
   "repository": {
     "type": "git",
