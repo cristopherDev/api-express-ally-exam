@@ -25,7 +25,7 @@ async function authUser(req, res) {
 
   const token = jwt.sign({ id: findUser.id }, secretKey, { expiresIn: '1d' })
 
-  return res.status(200).json({ auth: true, token })
+  return res.status(200).json({ auth: true, id: findUser.id, token })
 }
 
 module.exports = {

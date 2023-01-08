@@ -29,6 +29,7 @@ class UsersService {
       const totalUsers = await this.user.count();
 
       const users = await this.user.findAll({
+        attributes: ['id', 'name', 'email', 'last_login', 'createdAt'],
         order: [['id', 'DESC']],
         offset,
         limit,
