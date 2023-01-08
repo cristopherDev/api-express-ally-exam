@@ -14,6 +14,20 @@ async function createTask(req, res) {
   }
 }
 
+async function doneTask(req, res) {
+  try {
+    const { id } = req.params
+    const { status } = req.body
+
+    const result = await tasksService.doneTask(id, status)
+
+    res.status(200).json(result)
+  } catch (error) {
+    res.status(500).json(error)
+  }
+}
+
 module.exports = {
-    createTask
+  createTask,
+  doneTask,
 }
